@@ -97,6 +97,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenHtmlModal }) => {
                 </a>
               </li>
               <li>
+                <a
+                  href={BUSINESS_CONFIG.catalogChannelUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 text-emerald-300 font-semibold transition-colors flex items-center gap-1.5"
+                >
+                  <i className="fa-brands fa-whatsapp text-sm text-emerald-400" />
+                  <span>Catálogo de Servicios (Canal WhatsApp)</span>
+                </a>
+              </li>
+              <li>
                 <a href="#como-funciona" className="hover:text-amber-400 transition-colors">
                   ¿Cómo Funciona?
                 </a>

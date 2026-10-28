@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, ExternalLink } from 'lucide-react';
+import { BUSINESS_CONFIG } from '../utils/referral';
 
 export interface ServiceItem {
   id: string;
@@ -73,7 +74,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
     <section id="servicios" className="py-20 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 text-blue-900 text-xs sm:text-sm font-semibold">
             <Sparkles className="w-4 h-4 text-amber-500" />
             <span>Nuestros Servicios en San Fernando de Apure</span>
@@ -85,6 +86,36 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             Combinamos tecnología de impresión de alta definición con materiales de primera para
             garantizar acabados impecables en cada trabajo.
           </p>
+        </div>
+
+        {/* WhatsApp Channel Catalog Banner */}
+        <div className="mb-12 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl p-6 sm:p-8 text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-emerald-400/30">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+            <div className="w-14 h-14 rounded-2xl bg-white/20 border border-white/25 flex items-center justify-center text-3xl text-white flex-shrink-0 shadow-inner">
+              <i className="fa-brands fa-whatsapp" />
+            </div>
+            <div>
+              <span className="text-xs uppercase font-extrabold tracking-wider text-emerald-200 block">
+                ¡Catálogo Oficial en Línea!
+              </span>
+              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-white">
+                Ver catálogo completo de todos los servicios
+              </h3>
+              <p className="text-xs sm:text-sm text-emerald-100/90 mt-1 max-w-xl">
+                Accede a nuestro Canal Oficial de WhatsApp para ver muestras fotográficas, listas de precios, nuevos materiales y opciones disponibles.
+              </p>
+            </div>
+          </div>
+          <a
+            href={BUSINESS_CONFIG.catalogChannelUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-950 font-heading font-extrabold text-sm flex items-center justify-center gap-2 shadow-md transition-all transform hover:scale-105 flex-shrink-0"
+          >
+            <i className="fa-brands fa-whatsapp text-xl text-emerald-600" />
+            <span>Abrir Catálogo Completo</span>
+            <ExternalLink className="w-4 h-4 text-emerald-700" />
+          </a>
         </div>
 
         {/* Services Grid (5 cards + 1 custom card) */}

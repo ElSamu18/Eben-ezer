@@ -25,6 +25,7 @@ export const BUSINESS_CONFIG = {
   instagramHandle: '@eben_ezer_variedades',
   facebook: 'https://facebook.com',
   domainPlaceholder: 'https://eben-ezer.com',
+  catalogChannelUrl: 'https://whatsapp.com/channel/0029VbDSCML5fM5S4aTWJ92y',
   discountPercentage: 10,
 };
 

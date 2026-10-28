@@ -76,24 +76,34 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToServices, referralCode }) 
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
               <a
                 href={whatsappHeroUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-heading font-bold text-base text-slate-950 bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-300 hover:from-emerald-300 hover:to-teal-200 shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl font-heading font-bold text-base text-slate-950 bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-300 hover:from-emerald-300 hover:to-teal-200 shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5"
               >
                 <i className="fa-brands fa-whatsapp text-2xl text-emerald-950" />
                 <span>Cotiza por WhatsApp</span>
               </a>
 
+              <a
+                href={BUSINESS_CONFIG.catalogChannelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-heading font-semibold text-sm sm:text-base text-emerald-100 bg-emerald-950/80 hover:bg-emerald-900/90 border border-emerald-400/50 shadow-md transition-all backdrop-blur-xs"
+              >
+                <i className="fa-brands fa-whatsapp text-xl text-emerald-400" />
+                <span>Ver Catálogo de Servicios</span>
+              </a>
+
               <button
                 type="button"
                 onClick={onScrollToServices}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-heading font-semibold text-base text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all backdrop-blur-xs"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-heading font-semibold text-sm text-white bg-white/10 hover:bg-white/15 border border-white/20 transition-all backdrop-blur-xs"
               >
                 <span>Ver servicios</span>
-                <ArrowDownCircle className="w-5 h-5 text-amber-300" />
+                <ArrowDownCircle className="w-4 h-4 text-amber-300" />
               </button>
             </div>
 

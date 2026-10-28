@@ -107,6 +107,28 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
 
             {/* Benefit boxes */}
             <div className="space-y-3 pt-2">
+              <a
+                href={BUSINESS_CONFIG.catalogChannelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 p-4 bg-gradient-to-r from-emerald-50 to-teal-50 hover:from-emerald-100 hover:to-teal-100 rounded-2xl border border-emerald-200 transition-colors shadow-2xs group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+                  <i className="fa-brands fa-whatsapp text-xl" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-heading font-bold text-emerald-950 text-sm group-hover:text-emerald-700 transition-colors">
+                      Catálogo completo en WhatsApp
+                    </h4>
+                    <i className="fa-solid fa-arrow-up-right-from-square text-xs text-emerald-600" />
+                  </div>
+                  <p className="text-xs text-emerald-800/90 mt-0.5">
+                    ¿Quieres ver más fotos y opciones? Revisa nuestro Canal Oficial de WhatsApp.
+                  </p>
+                </div>
+              </a>
+
               <div className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-slate-200 shadow-xs">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0">
                   <i className="fa-brands fa-whatsapp text-xl" />

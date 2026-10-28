@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, MessageSquareQuote, Gift, PhoneCall, Code } from 'lucide-react';
+import { Menu, X, MessageSquareQuote, Gift, PhoneCall, Code, ExternalLink } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../utils/referral';
 
 interface NavbarProps {
@@ -65,8 +65,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal, referralCode })
             ))}
           </nav>
 
-          {/* Actions: Cotizar button & HTML export button */}
+          {/* Actions: Canal de Catálogo, Cotizar button & HTML export button */}
           <div className="hidden sm:flex items-center gap-2.5">
+            <a
+              href={BUSINESS_CONFIG.catalogChannelUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/90 rounded-lg transition-colors shadow-2xs"
+              title="Ver el catálogo completo de todos los servicios en nuestro Canal de WhatsApp"
+            >
+              <i className="fa-brands fa-whatsapp text-sm text-emerald-600" />
+              <span>Ver Catálogo</span>
+              <ExternalLink className="w-3 h-3 text-emerald-600" />
+            </a>
+
             {onOpenHtmlModal && (
               <button
                 type="button"
@@ -132,10 +144,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal, referralCode })
 
             <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
               <a
+                href={BUSINESS_CONFIG.catalogChannelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-sm"
+              >
+                <i className="fa-brands fa-whatsapp text-lg text-white" />
+                <span>Ver Catálogo Completo en WhatsApp</span>
+                <ExternalLink className="w-4 h-4 text-emerald-100" />
+              </a>
+
+              <a
                 href={`https://wa.me/${BUSINESS_CONFIG.mainPhoneDigits}?text=${encodeURIComponent('¡Hola Eben-ezer! Quisiera más información sobre sus servicios de impresión en San Fernando de Apure.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-sm bg-slate-900 hover:bg-slate-800 text-white shadow-sm"
               >
                 <PhoneCall className="w-4 h-4" />
                 <span>WhatsApp: {BUSINESS_CONFIG.mainPhone}</span>
