@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, FileText, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import {
+  MessageSquare,
+  FileText,
+  CheckCircle2,
+  AlertCircle,
+  Sparkles,
+  ShieldCheck,
+  Paperclip,
+  Link as LinkIcon,
+  HelpCircle,
+  CreditCard,
+  Banknote,
+  Send
+} from 'lucide-react';
 import {
   QuoteFormState,
   buildWhatsAppQuoteUrl,
@@ -14,9 +27,10 @@ interface QuoteFormProps {
 export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
   const [formData, setFormData] = useState<QuoteFormState>({
     name: '',
-    phone: '',
     service: initialService || 'Impresiones a color y en blanco y negro',
     quantity: '',
+    fileSource: 'Lo enviaré directo por el chat de WhatsApp (PDF / Imagen)',
+    fileUrl: '',
     description: '',
   });
 
@@ -41,10 +55,14 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
     }
   };
 
+  const handleQuickQuantity = (qty: string) => {
+    setFormData((prev) => ({ ...prev, quantity: qty }));
+  };
+
   const validate = (): boolean => {
     const newErrors: { name?: string } = {};
     if (!formData.name.trim()) {
-      newErrors.name = 'Por favor ingresa tu nombre completo.';
+      newErrors.name = 'Por favor ingresa tu nombre para saber cómo dirigirnos a ti.';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -63,27 +81,37 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
   };
 
   return (
-    <section id="contacto" className="py-20 bg-slate-50 relative">
+    <section id="contacto" className="py-20 bg-slate-50 relative scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Contact context and direct numbers */}
+          {/* Left Column: Contact context & Trust triggers */}
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-900 text-xs sm:text-sm font-semibold">
               <MessageSquare className="w-4 h-4 text-blue-700" />
-              <span>Cotización Inmediata</span>
+              <span>Sin Fricción • Cotización Inmediata</span>
             </div>
 
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
-              Pide tu cotización personalizada sin compromiso
+              Pide tu presupuesto por WhatsApp en segundos
             </h2>
 
             <p className="text-slate-600 text-base leading-relaxed">
-              Completa el formulario y te responderemos al instante por WhatsApp con el presupuesto exacto,
-              opciones de acabado y tiempo de entrega.
+              No te pedimos registrarte ni llenar formularios largos. Tu número se detecta automáticamente al abrirse el chat y te responderemos con precio cerrado y tiempo de entrega.
             </p>
 
-            {/* Benefit boxes */}
-            <div className="space-y-3 pt-2">
+            {/* Direct Guarantee Box */}
+            <div className="p-5 bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-2 border-amber-400/60 rounded-3xl space-y-2">
+              <div className="flex items-center gap-2.5 text-amber-900 font-heading font-bold text-sm">
+                <ShieldCheck className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                <span>Garantía de Satisfacción 100%</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <strong>"Si tu impresión no queda como esperabas, la repetimos sin costo"</strong>. Revisamos resolución, sangrías y colores antes de mandar a imprimir.
+              </p>
+            </div>
+
+            {/* Benefit / Channel boxes */}
+            <div className="space-y-3 pt-1">
               <a
                 href={BUSINESS_CONFIG.catalogChannelUrl}
                 target="_blank"
@@ -96,7 +124,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
                     <h4 className="font-heading font-bold text-emerald-950 text-sm group-hover:text-emerald-700 transition-colors">
-                      Catálogo completo en WhatsApp
+                      Catálogo oficial en WhatsApp
                     </h4>
                     <i className="fa-solid fa-arrow-up-right-from-square text-xs text-emerald-600" />
                   </div>
@@ -112,24 +140,10 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
                 </div>
                 <div>
                   <h4 className="font-heading font-bold text-slate-900 text-sm">
-                    Revisión de archivos por WhatsApp
+                    Revisión gratuita de archivos
                   </h4>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Puedes enviarnos tus PDFs, fotos o documentos directamente en el chat para verificar la resolución.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-slate-200 shadow-xs">
-                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-5 h-5 text-amber-600" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-slate-900 text-sm">
-                    Precios justos y transparentes
-                  </h4>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Cotizamos al mayor y al detal para estudiantes, profesionales y negocios locales.
+                    Envíanos tus documentos en PDF, imagen o enlace para verificar que no salgan borrosos.
                   </p>
                 </div>
               </div>
@@ -138,7 +152,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
             {/* Direct contact alternatives */}
             <div className="p-6 bg-blue-950 text-white rounded-3xl space-y-4 shadow-lg">
               <h4 className="font-heading font-bold text-base text-white">
-                Líneas directas de atención en Apure:
+                Líneas de atención en San Fernando de Apure:
               </h4>
 
               <div className="space-y-2.5 text-sm">
@@ -170,20 +184,25 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
               </div>
 
               <p className="text-[11px] text-slate-300">
-                Horario de atención: Lunes a Sábado. Respondemos con prontitud.
+                Horario: Lunes a Sábado. Respondemos con prontitud.
               </p>
             </div>
           </div>
 
-          {/* Right Column: Interactive Form */}
+          {/* Right Column: High-Conversion Clean Form (No Phone Requirement) */}
           <div className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xl relative">
               <div className="mb-6">
-                <h3 className="font-heading font-bold text-2xl text-slate-900">
-                  Formulario de Solicitud
-                </h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-heading font-bold text-2xl text-slate-900">
+                    Formulario de Solicitud
+                  </h3>
+                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                    Directo a WhatsApp
+                  </span>
+                </div>
                 <p className="text-slate-500 text-xs sm:text-sm mt-1">
-                  Los campos marcados con <span className="text-rose-500 font-bold">*</span> son requeridos.
+                  Solo necesitamos saber tu nombre y lo que buscas. Tu teléfono se identificará al abrirse WhatsApp.
                 </p>
               </div>
 
@@ -193,14 +212,14 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
                   <div className="text-xs sm:text-sm text-emerald-900">
                     <p className="font-bold">¡Mensaje preparado con éxito!</p>
                     <p className="text-emerald-700 mt-0.5">
-                      Se ha abierto WhatsApp en una nueva pestaña. Si no se abrió automáticamente, puedes{' '}
+                      Se ha abierto WhatsApp en una nueva pestaña. Si no se abrió automáticamente,{' '}
                       <a
                         href={buildWhatsAppQuoteUrl(formData, BUSINESS_CONFIG.mainPhoneDigits)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline font-bold text-emerald-950"
                       >
-                        hacer clic aquí para abrirlo
+                        haz clic aquí para abrirlo ahora
                       </a>.
                     </p>
                   </div>
@@ -208,10 +227,10 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                {/* Nombre completo */}
+                {/* 1. Nombre completo (Único campo obligatorio) */}
                 <div>
                   <label htmlFor="name" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Nombre completo <span className="text-rose-500">*</span>
+                    Tu nombre o cómo llamarte <span className="text-rose-500">*</span>
                   </label>
                   <input
                     id="name"
@@ -235,26 +254,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
                   )}
                 </div>
 
-                {/* Teléfono / WhatsApp (Opcional) */}
-                <div>
-                  <label htmlFor="phone" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Teléfono / WhatsApp <span className="text-slate-400 font-normal lowercase">(opcional)</span>
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Ejemplo: 0426-1234567 o +58 426... (opcional)"
-                    className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-blue-600 bg-slate-50/50 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2"
-                  />
-                  <p className="mt-1 text-[11px] text-slate-500">
-                    Tu número ya aparecerá de forma automática cuando se abra el chat en WhatsApp.
-                  </p>
-                </div>
-
-                {/* Servicio de interés */}
+                {/* 2. Servicio de interés */}
                 <div>
                   <label htmlFor="service" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     Servicio de interés <span className="text-rose-500">*</span>
@@ -274,11 +274,14 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
                   </select>
                 </div>
 
-                {/* Cantidad aproximada */}
+                {/* 3. Cantidad aproximada con botones rápidos */}
                 <div>
-                  <label htmlFor="quantity" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Cantidad aproximada <span className="text-slate-400 font-normal lowercase">(opcional)</span>
-                  </label>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label htmlFor="quantity" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                      Cantidad aproximada <span className="text-slate-400 font-normal lowercase">(opcional)</span>
+                    </label>
+                    <span className="text-[11px] text-slate-400">Atendemos desde 1 unidad</span>
+                  </div>
                   <input
                     id="quantity"
                     name="quantity"
@@ -288,62 +291,110 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
                     placeholder="Ej: 50 copias, 100 stickers, 1 certificado..."
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-600"
                   />
+                  {/* Quick chips */}
+                  <div className="flex flex-wrap items-center gap-2 mt-2">
+                    <span className="text-[11px] text-slate-500 font-medium">Sugerencias:</span>
+                    {['10 unidades', '50 copias', '100 stickers', 'A convenir'].map((chip) => (
+                      <button
+                        key={chip}
+                        type="button"
+                        onClick={() => handleQuickQuantity(chip)}
+                        className="text-xs px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200"
+                      >
+                        {chip}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Descripción del trabajo */}
+                {/* 4. Archivo / Diseño (Fricción cero) */}
+                <div>
+                  <label htmlFor="fileSource" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    ¿Tienes el archivo o diseño listo?
+                  </label>
+                  <select
+                    id="fileSource"
+                    name="fileSource"
+                    value={formData.fileSource}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-blue-600"
+                  >
+                    <option value="Lo enviaré directo por el chat de WhatsApp (PDF / Imagen)">
+                      📁 Lo enviaré directo por el chat de WhatsApp (PDF / Imagen)
+                    </option>
+                    <option value="Tengo enlace de Google Drive o Canva">
+                      🔗 Tengo enlace de Google Drive o Canva
+                    </option>
+                    <option value="Necesito asesoría / apoyo con el diseño">
+                      💡 Necesito asesoría / apoyo con el diseño
+                    </option>
+                  </select>
+
+                  {/* Conditionally show link input if user chooses Google Drive / Canva */}
+                  {formData.fileSource === 'Tengo enlace de Google Drive o Canva' && (
+                    <div className="mt-2.5 animate-in fade-in duration-150">
+                      <input
+                        type="url"
+                        name="fileUrl"
+                        value={formData.fileUrl || ''}
+                        onChange={handleChange}
+                        placeholder="Pega aquí el enlace de Google Drive, Canva o nube (opcional)"
+                        className="w-full px-4 py-2.5 rounded-xl border border-teal-300 bg-teal-50/30 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-teal-500"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* 5. Comentarios o detalles */}
                 <div>
                   <label htmlFor="description" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Descripción del trabajo <span className="text-slate-400 font-normal lowercase">(opcional)</span>
+                    Detalles del trabajo <span className="text-slate-400 font-normal lowercase">(opcional)</span>
                   </label>
                   <textarea
                     id="description"
                     name="description"
-                    rows={3}
+                    rows={2}
                     value={formData.description}
                     onChange={handleChange}
-                    placeholder="Cuéntanos detalles: tipo de papel, colores, fecha límite, medidas o cualquier indicación especial..."
+                    placeholder="Tipo de papel (bond, fotográfico, adhesivo), colores, fecha requerida o cualquier indicación..."
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-600 resize-none"
                   />
                 </div>
 
-                {/* Submit button */}
-                <button
-                  type="submit"
-                  className="w-full py-4 px-6 rounded-2xl font-heading font-extrabold text-base text-slate-950 bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-300 hover:from-emerald-300 hover:to-teal-200 shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-                >
-                  <i className="fa-brands fa-whatsapp text-2xl text-emerald-950" />
-                  <span>Enviar cotización por WhatsApp</span>
-                </button>
+                {/* 6. High-Contrast CTA Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full py-4 px-6 rounded-2xl font-heading font-extrabold text-base text-slate-950 bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-300 hover:from-emerald-300 hover:to-teal-200 shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                  >
+                    <i className="fa-brands fa-whatsapp text-2xl text-emerald-950" />
+                    <span>Pedir Presupuesto por WhatsApp (Respuesta Rápida)</span>
+                  </button>
+                </div>
 
-                {/* Subtext info */}
-                <div className="text-center space-y-2 pt-2">
-                  <p className="text-xs text-slate-500 flex items-center justify-center gap-1.5">
-                    <FileText className="w-3.5 h-3.5 text-slate-400" />
-                    <span>También puedes enviarnos tu archivo por WhatsApp después de cotizar.</span>
-                  </p>
-
-                  <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-600">
-                    <span>Líneas alternativas:</span>
-                    <a
-                      href={`https://wa.me/${BUSINESS_CONFIG.mainPhoneDigits}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-blue-900 hover:underline flex items-center gap-1"
-                    >
-                      <i className="fa-brands fa-whatsapp text-emerald-600" />
-                      {BUSINESS_CONFIG.mainPhone}
-                    </a>
-                    <span>•</span>
-                    <a
-                      href={`https://wa.me/${BUSINESS_CONFIG.secondaryPhoneDigits}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-teal-800 hover:underline flex items-center gap-1"
-                    >
-                      <i className="fa-brands fa-whatsapp text-teal-600" />
-                      {BUSINESS_CONFIG.secondaryPhone}
-                    </a>
+                {/* 7. Badges de pago seguro y confianza cerca del CTA */}
+                <div className="pt-3 border-t border-slate-100 space-y-3">
+                  <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-700">
+                    <span className="flex items-center gap-1.5 text-emerald-700">
+                      <i className="fa-solid fa-mobile-screen-button text-emerald-600" />
+                      Pago Móvil Inmediato
+                    </span>
+                    <span className="text-slate-300">•</span>
+                    <span className="flex items-center gap-1.5 text-amber-700">
+                      <i className="fa-solid fa-money-bill-wave text-amber-600" />
+                      Efectivo Bs / Divisas
+                    </span>
+                    <span className="text-slate-300">•</span>
+                    <span className="flex items-center gap-1.5 text-teal-700">
+                      <i className="fa-solid fa-building-columns text-teal-600" />
+                      Transferencias
+                    </span>
                   </div>
+
+                  <p className="text-[11px] text-center text-slate-500 flex items-center justify-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Garantía: Si tu impresión no queda como esperabas, la repetimos sin costo</span>
+                  </p>
                 </div>
               </form>
             </div>

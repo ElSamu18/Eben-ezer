@@ -3,6 +3,8 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TrustBar } from './components/TrustBar';
 import { Services } from './components/Services';
+import { GuaranteeBanner } from './components/GuaranteeBanner';
+import { Testimonials } from './components/Testimonials';
 import { HowItWorks } from './components/HowItWorks';
 import { QuoteForm } from './components/QuoteForm';
 import { FaqSection } from './components/FaqSection';
@@ -34,33 +36,40 @@ export default function App() {
       {/* 1. Header Fijo */}
       <Navbar onOpenHtmlModal={() => setIsHtmlModalOpen(true)} />
 
-      {/* 2. Hero Section */}
+      {/* Main Content Flow */}
       <main className="flex-1">
+        {/* 2. Hero Section */}
         <Hero onScrollToServices={() => handleScrollToSection('servicios')} />
 
-        {/* 3. Barra de Confianza */}
+        {/* 3. Barra de Confianza Rápida */}
         <TrustBar />
 
-        {/* 4. Servicios */}
+        {/* 4. Catálogo de Servicios */}
         <Services onSelectService={handleSelectService} />
 
-        {/* 5. Cómo Funciona */}
+        {/* 5. Bloque Visible de Garantía (CRO: Confianza y Descuento de Riesgo) */}
+        <GuaranteeBanner onScrollToForm={() => handleScrollToSection('contacto')} />
+
+        {/* 6. Testimonios Reales con Comprobantes WhatsApp */}
+        <Testimonials />
+
+        {/* 7. Cómo Funciona en 3 Pasos */}
         <HowItWorks />
 
-        {/* 6. Formulario de Cotización */}
+        {/* 8. Formulario de Cotización Ultra-Rápido (Sin Teléfono, Fricción Cero) */}
         <QuoteForm initialService={selectedService} />
 
-        {/* 7. Preguntas Frecuentes (Acordeón) */}
+        {/* 9. Preguntas Frecuentes (Acordeón Accesible) */}
         <FaqSection />
       </main>
 
-      {/* 8. Footer */}
+      {/* 10. Footer Oficial */}
       <Footer onOpenHtmlModal={() => setIsHtmlModalOpen(true)} />
 
-      {/* 9. Botón Flotante de WhatsApp */}
+      {/* 11. Botón Flotante de WhatsApp */}
       <FloatingWhatsApp />
 
-      {/* 10. Modal de Exportación HTML Estático */}
+      {/* 12. Modal de Exportación HTML Estático */}
       <HtmlExportModal
         isOpen={isHtmlModalOpen}
         onClose={() => setIsHtmlModalOpen(false)}

@@ -102,6 +102,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenHtmlModal }) => {
                 </a>
               </li>
               <li>
+                <a href="#testimonios" className="hover:text-amber-400 transition-colors">
+                  Testimonios Reales
+                </a>
+              </li>
+              <li>
                 <a href="#faq" className="hover:text-amber-400 transition-colors">
                   Preguntas Frecuentes
                 </a>

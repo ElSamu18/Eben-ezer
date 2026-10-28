@@ -8,6 +8,8 @@ export interface QuoteFormState {
   phone?: string;
   service: string;
   quantity: string;
+  fileSource?: string;
+  fileUrl?: string;
   description: string;
 }
 
@@ -45,6 +47,14 @@ export function buildWhatsAppQuoteUrl(
 
   if (data.quantity && data.quantity.trim()) {
     lines.push(`🔢 *Cantidad aproximada:* ${data.quantity.trim()}`);
+  }
+
+  if (data.fileSource && data.fileSource.trim()) {
+    lines.push(`📎 *Archivo o diseño:* ${data.fileSource.trim()}`);
+  }
+
+  if (data.fileUrl && data.fileUrl.trim()) {
+    lines.push(`🔗 *Enlace:* ${data.fileUrl.trim()}`);
   }
 
   if (data.description && data.description.trim()) {

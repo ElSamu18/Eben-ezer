@@ -13,6 +13,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal }) => {
     { label: 'Inicio', href: '#inicio' },
     { label: 'Servicios', href: '#servicios' },
     { label: 'Cómo Funciona', href: '#como-funciona' },
+    { label: 'Testimonios', href: '#testimonios' },
     { label: 'Preguntas', href: '#faq' },
     { label: 'Contacto', href: '#contacto' },
   ];

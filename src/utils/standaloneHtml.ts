@@ -9,14 +9,23 @@ export function getStandaloneHtml(): string {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eben-ezer | Impresiones y Variedades - San Fernando de Apure</title>
-  <meta name="description" content="Donde la variedad encuentra la fe. Copias, impresiones a color y B/N, stickers, certificados y fotos tipo carnet en San Fernando de Apure. ¡Cotiza por WhatsApp!">
+  <meta name="description" content="Imprenta en San Fernando de Apure. Copias, impresiones a color y B/N, stickers, certificados y fotos tipo carnet con garantía de satisfacción. Cotiza por WhatsApp.">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="VE-C">
+  <meta name="geo.placename" content="San Fernando de Apure">
   
   <!-- Open Graph / Redes Sociales -->
-  <meta property="og:title" content="Eben-ezer | Donde la variedad encuentra la fe">
-  <meta property="og:description" content="Servicios de impresión, copias, stickers y certificados en San Fernando de Apure. Atención rápida y profesional.">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="Eben-ezer | Donde la variedad encuentra la fe">
+  <meta property="og:description" content="Centro de impresiones, copias nítidas, fotos carnet y stickers en San Fernando de Apure. Si no queda como esperabas, la repetimos sin costo.">
   <meta property="og:image" content="/assets/aistudio/1792579283927_420327b5.jpg">
+  <meta property="og:site_name" content="Eben-ezer">
+
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eben-ezer | Impresiones en San Fernando de Apure">
+  <meta name="twitter:description" content="Copias, stickers, certificados y fotos carnet con garantía de satisfacción y cotización directa por WhatsApp.">
+  <meta name="twitter:image" content="/assets/aistudio/1792579283927_420327b5.jpg">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖨️</text></svg>">
@@ -56,6 +65,26 @@ export function getStandaloneHtml(): string {
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Poppins', sans-serif; }
   </style>
+
+  <!-- Schema.org JSON-LD para LocalBusiness / PrintShop -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PrintShop",
+    "name": "Eben-ezer",
+    "slogan": "Donde la variedad encuentra la fe",
+    "description": "Imprenta y centro de copias en San Fernando de Apure, Venezuela.",
+    "telephone": "+584262181760",
+    "email": "1variedades.eben.ezer1@gmail.com",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Fernando de Apure",
+      "addressRegion": "Apure",
+      "addressCountry": "VE"
+    }
+  }
+  </script>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-400 selection:text-slate-900">
 
@@ -79,6 +108,7 @@ export function getStandaloneHtml(): string {
           <a href="#inicio" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100 transition">Inicio</a>
           <a href="#servicios" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100 transition">Servicios</a>
           <a href="#como-funciona" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100 transition">Cómo Funciona</a>
+          <a href="#testimonios" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100 transition">Testimonios</a>
           <a href="#faq" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100 transition">Preguntas</a>
           <a href="#contacto" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100 transition">Contacto</a>
         </nav>
@@ -115,6 +145,7 @@ export function getStandaloneHtml(): string {
       <a href="#inicio" class="block px-3 py-2 rounded-lg text-slate-700 font-semibold hover:bg-slate-100">Inicio</a>
       <a href="#servicios" class="block px-3 py-2 rounded-lg text-slate-700 font-semibold hover:bg-slate-100">Servicios</a>
       <a href="#como-funciona" class="block px-3 py-2 rounded-lg text-slate-700 font-semibold hover:bg-slate-100">Cómo Funciona</a>
+      <a href="#testimonios" class="block px-3 py-2 rounded-lg text-slate-700 font-semibold hover:bg-slate-100">Testimonios Reales</a>
       <a href="#faq" class="block px-3 py-2 rounded-lg text-slate-700 font-semibold hover:bg-slate-100">Preguntas Frecuentes</a>
       <a href="#contacto" class="block px-3 py-2 rounded-lg text-slate-700 font-semibold hover:bg-slate-100">Contacto</a>
     </div>
@@ -220,7 +251,7 @@ export function getStandaloneHtml(): string {
             <i class="fa-solid fa-star"></i>
           </div>
           <span class="font-bold text-slate-900 text-sm">5.0 / 5.0</span>
-          <span class="text-xs text-slate-500">(Calidad y rapidez)</span>
+          <span class="text-xs text-slate-500">(Calidad comprobada)</span>
         </div>
 
         <div class="flex items-center gap-3">
@@ -361,13 +392,122 @@ export function getStandaloneHtml(): string {
     </div>
   </section>
 
+  <!-- BLOQUE DE GARANTÍA VISIBLE -->
+  <section class="py-12 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 text-center lg:text-left">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-shield-halved text-amber-400"></i> Garantía de Satisfacción Eben-ezer
+          </span>
+          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+            "Si tu impresión no queda como esperabas, <span class="text-amber-400 underline decoration-amber-400/40">la repetimos sin costo</span>"
+          </h3>
+          <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+            Revisamos la resolución y medidas de tus archivos antes de mandar a producción. Si ocurre cualquier error imputable a la impresión o corte, asumimos la responsabilidad.
+          </p>
+        </div>
+        <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-2xl font-heading font-bold text-base bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition flex items-center justify-center gap-2 flex-shrink-0 shadow-lg">
+          <i class="fa-brands fa-whatsapp text-xl"></i> Cotizar con Garantía
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS REALES -->
+  <section id="testimonios" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-semibold">
+          Prueba Social Auténtica
+        </span>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          Lo que dicen quienes ya confían en Eben-ezer
+        </h2>
+        <p class="text-slate-600 text-base">
+          Conversaciones 100% reales de clientes en San Fernando de Apure.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-blue-900 text-amber-300 font-bold flex items-center justify-center">
+                  MN
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg">Marimar Niño <i class="fa-solid fa-circle-check text-emerald-500 text-sm"></i></h3>
+                  <p class="text-xs text-blue-900 font-semibold">Fotos tipo carnet con envío a domicilio</p>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                Envío a domicilio
+              </span>
+            </div>
+
+            <div class="flex text-amber-400 text-sm mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+
+            <p class="text-sm text-slate-700 italic bg-slate-50 p-3.5 rounded-2xl border border-slate-100 mb-4">
+              "¡Recibí! ❤️" - Fotos tipo carnet entregadas en su empaque sellado oficial de Eben-ezer directamente en San Fernando de Apure.
+            </p>
+
+            <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 relative">
+              <img src="/testimonials/marimar-nino.jpg" alt="Comprobante real de Marimar Niño recibiendo fotos carnet" loading="lazy" class="w-full h-56 object-cover object-center">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 text-white text-[11px] px-2.5 py-1 rounded-full">
+                <i class="fa-solid fa-heart text-rose-400"></i> Captura real de entrega • 3:58 p.m.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-900 text-amber-300 font-bold flex items-center justify-center">
+                  JP
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg">Jhoncar Pérez <i class="fa-solid fa-circle-check text-emerald-500 text-sm"></i></h3>
+                  <p class="text-xs text-blue-900 font-semibold">Impresiones con facilidad de pago</p>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                Cliente recurrente
+              </span>
+            </div>
+
+            <div class="flex text-amber-400 text-sm mb-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+
+            <p class="text-sm text-slate-700 italic bg-slate-50 p-3.5 rounded-2xl border border-slate-100 mb-4">
+              "Gracias a la empresa Ebenezer por siempre estar de la mano con los estudiantes. Éxitos y bendiciones broel ❤️"
+            </p>
+
+            <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 relative">
+              <img src="/testimonials/jhoncar-perez.jpg" alt="Comprobante real de Jhoncar Pérez con facilidades de pago para estudiantes" loading="lazy" class="w-full h-56 object-cover object-center">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 text-white text-[11px] px-2.5 py-1 rounded-full">
+                <i class="fa-solid fa-heart text-rose-400"></i> Captura real de WhatsApp • 1:43 a.m.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CÓMO FUNCIONA -->
   <section id="como-funciona" class="py-20 bg-slate-100/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
         <span class="inline-block px-3.5 py-1.5 rounded-full bg-teal-100 text-teal-900 text-xs font-semibold">Proceso Sencillo</span>
         <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">¿Cómo funciona pedir con Eben-ezer?</h2>
-        <p class="text-slate-600 text-base">Sin pérdidas de tiempo ni traslados innecesarios.</p>
+        <p class="text-slate-600 text-base">Sin pérdidas de tiempo ni trámites engorrosos.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -379,7 +519,7 @@ export function getStandaloneHtml(): string {
             <span class="font-heading font-extrabold text-3xl text-slate-200">01</span>
           </div>
           <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Pides tu cotización</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Completa el formulario o contáctanos directamente a nuestro WhatsApp con tu idea o requerimiento.</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Escribe tu nombre y qué servicio buscas en el formulario abajo. Se abrirá WhatsApp de inmediato.</p>
         </div>
 
         <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xs hover:shadow-md transition">
@@ -390,7 +530,7 @@ export function getStandaloneHtml(): string {
             <span class="font-heading font-extrabold text-3xl text-slate-200">02</span>
           </div>
           <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Apruebas el diseño o archivo</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Revisamos la resolución y medidas de tu archivo. Te enviamos una vista previa y confirmamos el presupuesto exacto.</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Revisamos la resolución y medidas de tu archivo. Te confirmamos el presupuesto exacto antes de imprimir.</p>
         </div>
 
         <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xs hover:shadow-md transition">
@@ -407,25 +547,20 @@ export function getStandaloneHtml(): string {
     </div>
   </section>
 
-  <!-- FORMULARIO DE COTIZACIÓN -->
+  <!-- FORMULARIO DE COTIZACIÓN (SIN TELÉFONO) -->
   <section id="contacto" class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div class="lg:col-span-5 space-y-6">
           <span class="inline-block px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-900 text-xs font-semibold">Cotización Inmediata</span>
           <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">Pide tu cotización personalizada sin compromiso</h2>
-          <p class="text-slate-600 text-base leading-relaxed">Completa los datos y se redactará un mensaje listo para enviar a nuestro WhatsApp. Te responderemos en breve con el presupuesto exacto.</p>
+          <p class="text-slate-600 text-base leading-relaxed">No te pedimos registrarte ni llenar campos de teléfono. Tu número se detecta automáticamente al abrirse el chat de WhatsApp.</p>
 
-          <div class="space-y-3 pt-2">
-            <a href="https://whatsapp.com/channel/0029VbDSCML5fM5S4aTWJ92y" target="_blank" rel="noopener noreferrer" class="flex items-start gap-3 p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200 shadow-2xs hover:bg-emerald-100 transition">
-              <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0">
-                <i class="fa-brands fa-whatsapp text-xl"></i>
-              </div>
-              <div>
-                <h4 class="font-heading font-bold text-emerald-950 text-sm">Catálogo completo en WhatsApp</h4>
-                <p class="text-xs text-emerald-800 mt-0.5">Revisa nuestro Canal Oficial de WhatsApp para ver fotos de trabajos y muestras.</p>
-              </div>
-            </a>
+          <div class="p-5 bg-gradient-to-r from-amber-500/10 to-amber-500/10 border-2 border-amber-400/60 rounded-3xl space-y-2">
+            <div class="flex items-center gap-2 text-amber-900 font-bold text-sm">
+              <i class="fa-solid fa-shield-halved text-amber-600"></i> Garantía 100% de Satisfacción
+            </div>
+            <p class="text-xs text-slate-700">"Si tu impresión no queda como esperabas, la repetimos sin costo".</p>
           </div>
 
           <div class="p-6 bg-blue-950 text-white rounded-3xl space-y-4 shadow-lg">
@@ -447,19 +582,13 @@ export function getStandaloneHtml(): string {
           <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
             <div class="mb-6">
               <h3 class="font-heading font-bold text-2xl text-slate-900">Formulario de Solicitud</h3>
-              <p class="text-slate-500 text-xs sm:text-sm mt-1">Los campos marcados con <span class="text-rose-500 font-bold">*</span> son requeridos.</p>
+              <p class="text-slate-500 text-xs sm:text-sm mt-1">Solo llena los datos del trabajo para preparar tu mensaje de WhatsApp.</p>
             </div>
 
             <form id="quote-form" class="space-y-4" onsubmit="handleQuoteSubmit(event)">
               <div>
                 <label for="form-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nombre completo <span class="text-rose-500">*</span></label>
                 <input id="form-name" type="text" required placeholder="Ejemplo: Samuel Alexander López" class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
-              </div>
-
-              <div>
-                <label for="form-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Teléfono / WhatsApp <span class="text-slate-400 font-normal lowercase">(opcional)</span></label>
-                <input id="form-phone" type="tel" placeholder="Ejemplo: 0426-1234567 o +58 426... (opcional)" class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
-                <p class="text-[11px] text-slate-500 mt-1">Tu número ya se identificará al abrirse el chat de WhatsApp.</p>
               </div>
 
               <div>
@@ -480,14 +609,31 @@ export function getStandaloneHtml(): string {
               </div>
 
               <div>
-                <label for="form-description" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Descripción del trabajo <span class="text-slate-400 font-normal lowercase">(opcional)</span></label>
+                <label for="form-file-source" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">¿Tienes el archivo o diseño listo?</label>
+                <select id="form-file-source" class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                  <option value="Lo enviaré directo por WhatsApp (PDF / Imagen)">Lo enviaré directo por WhatsApp (PDF / Imagen)</option>
+                  <option value="Tengo enlace de Google Drive o Canva">Tengo enlace de Google Drive o Canva</option>
+                  <option value="Necesito asesoría o diseño">Necesito asesoría o diseño</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="form-description" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Detalles o indicaciones <span class="text-slate-400 font-normal lowercase">(opcional)</span></label>
                 <textarea id="form-description" rows="3" placeholder="Tipo de papel, colores, medidas o detalles especiales..." class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"></textarea>
               </div>
 
               <button type="submit" class="w-full py-4 px-6 rounded-2xl font-heading font-extrabold text-base bg-emerald-400 hover:bg-emerald-300 text-slate-950 shadow-lg flex items-center justify-center gap-3 transition cursor-pointer">
                 <i class="fa-brands fa-whatsapp text-2xl"></i>
-                <span>Enviar cotización por WhatsApp</span>
+                <span>Pedir Presupuesto por WhatsApp (Respuesta Rápida)</span>
               </button>
+
+              <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-slate-600">
+                <span class="flex items-center gap-1 text-emerald-700"><i class="fa-solid fa-mobile-screen-button"></i> Pago Móvil</span>
+                <span>•</span>
+                <span class="flex items-center gap-1 text-amber-700"><i class="fa-solid fa-money-bill-wave"></i> Efectivo Bs / Divisas</span>
+                <span>•</span>
+                <span class="flex items-center gap-1 text-teal-700"><i class="fa-solid fa-building-columns"></i> Transferencias</span>
+              </div>
             </form>
           </div>
         </div>
@@ -499,58 +645,68 @@ export function getStandaloneHtml(): string {
   <section id="faq" class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 space-y-3">
-        <span class="inline-block px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">Respuestas Rápidas</span>
+        <span class="inline-block px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-800 text-xs font-semibold">Respuestas Claras y Rápidas</span>
         <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">Preguntas Frecuentes</h2>
       </div>
 
       <div class="space-y-4">
         <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
           <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
-            <span>¿Hacen envíos o entregas a domicilio?</span>
-            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
-          </button>
-          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
-            Atendemos en San Fernando de Apure. Consulta por WhatsApp según tu ubicación para coordinar entregas directas o retiro céntrico.
-          </div>
-        </div>
-
-        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
-          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
-            <span>¿Cuánto tarda mi pedido?</span>
-            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
-          </button>
-          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
-            Depende del tipo y volumen del trabajo; los pedidos pequeños (copias, fotos tipo carnet, impresiones básicas) suelen estar listos el mismo día o al día siguiente.
-          </div>
-        </div>
-
-        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
-          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
-            <span>¿Cómo puedo pagar?</span>
-            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
-          </button>
-          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
-            Aceptamos efectivo (bolívares y divisas), Pago Móvil de cualquier banco nacional y transferencia bancaria.
-          </div>
-        </div>
-
-        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
-          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
-            <span>¿Puedo pedir muestras o revisar el diseño antes de imprimir?</span>
-            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
-          </button>
-          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
-            ¡Por supuesto! Escríbenos por WhatsApp, te asesoramos con las dimensiones y enviamos una vista previa digital antes de mandar a producción.
-          </div>
-        </div>
-
-        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
-          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
             <span>¿Qué formatos de archivo reciben para imprimir?</span>
             <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
           </button>
           <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
-            Recibimos archivos en PDF, Word, PowerPoint, imágenes en alta resolución (JPG, PNG), archivos de diseño o fotos enviadas directamente por WhatsApp o correo electrónico.
+            Recibimos archivos en PDF (el formato más recomendado), Word, PowerPoint, imágenes en alta resolución (JPG, PNG) y diseños exportados desde Canva o Illustrator.
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
+            <span>¿Cómo les envío mis archivos sin que pierdan calidad?</span>
+            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+          </button>
+          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
+            Te recomendamos enviar tus archivos por WhatsApp seleccionando la opción "Documento" en lugar de "Foto", para que WhatsApp no comprima la resolución. También puedes compartirnos un enlace de Google Drive o Canva.
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
+            <span>¿Cuánto tarda en estar listo mi pedido?</span>
+            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+          </button>
+          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
+            Los trabajos rápidos (copias, impresiones de documentos, fotos carnet y pequeñas cantidades de stickers) suelen estar listos el mismo día. Para pedidos de gran volumen, coordinamos contigo el tiempo exacto antes de imprimir.
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
+            <span>¿Hacen envíos o entregas a domicilio en San Fernando de Apure?</span>
+            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+          </button>
+          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
+            ¡Sí! Realizamos entregas directas a domicilio debidamente protegidas en sobre sellado con nuestro sello de garantía, o puedes retirar tu pedido en nuestro punto de atención en San Fernando de Apure.
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
+            <span>¿Qué garantía tengo si la impresión no queda como esperaba?</span>
+            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+          </button>
+          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
+            Nuestra política es clara y transparente: "Si tu impresión no queda como esperabas, la repetimos sin costo". Siempre confirmamos medidas y detalles antes de mandar a producción.
+          </div>
+        </div>
+
+        <div class="faq-item rounded-2xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+          <button type="button" class="faq-toggle w-full py-5 px-6 text-left flex items-center justify-between font-heading font-bold text-slate-900">
+            <span>¿Cuáles son las formas de pago aceptadas?</span>
+            <i class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+          </button>
+          <div class="faq-content px-6 pb-5 pt-1 text-slate-600 text-sm hidden">
+            Aceptamos Pago Móvil de cualquier banco nacional (Banco Mercantil, Venezuela, Banesco, etc.), efectivo en bolívares y divisas, y transferencias bancarias directas.
           </div>
         </div>
       </div>
@@ -575,13 +731,13 @@ export function getStandaloneHtml(): string {
             Tu imprenta de confianza en San Fernando de Apure. Calidad fotográfica, copias de alta definición y atención cálida con base en la fe.
           </p>
           <div class="flex items-center gap-3 pt-2">
-            <a href="https://wa.me/584262181760" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="WhatsApp principal" title="WhatsApp principal">
+            <a href="https://wa.me/584262181760" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="WhatsApp principal">
               <i class="fa-brands fa-whatsapp text-lg"></i>
             </a>
-            <a href="https://whatsapp.com/channel/0029VbDSCML5fM5S4aTWJ92y" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-teal-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="Canal de WhatsApp (Catálogo)" title="Canal de WhatsApp (Catálogo Oficial)">
+            <a href="https://whatsapp.com/channel/0029VbDSCML5fM5S4aTWJ92y" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-teal-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="Canal oficial de WhatsApp" title="Canal oficial de WhatsApp">
               <i class="fa-solid fa-bullhorn text-sm text-emerald-400"></i>
             </a>
-            <a href="mailto:1variedades.eben.ezer1@gmail.com" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-amber-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="Correo electrónico" title="Correo electrónico">
+            <a href="mailto:1variedades.eben.ezer1@gmail.com" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-amber-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="Correo electrónico">
               <i class="fa-solid fa-envelope"></i>
             </a>
           </div>
@@ -594,6 +750,7 @@ export function getStandaloneHtml(): string {
             <li><a href="#servicios" class="hover:text-amber-400 transition">Servicios</a></li>
             <li><a href="https://whatsapp.com/channel/0029VbDSCML5fM5S4aTWJ92y" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Catálogo (Canal WhatsApp)</a></li>
             <li><a href="#como-funciona" class="hover:text-amber-400 transition">¿Cómo Funciona?</a></li>
+            <li><a href="#testimonios" class="hover:text-amber-400 transition">Testimonios Reales</a></li>
             <li><a href="#faq" class="hover:text-amber-400 transition">Preguntas Frecuentes</a></li>
             <li><a href="#contacto" class="hover:text-amber-400 transition">Cotizar por WhatsApp</a></li>
           </ul>
@@ -674,28 +831,25 @@ export function getStandaloneHtml(): string {
     function handleQuoteSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('form-name').value.trim();
-      const phoneInput = document.getElementById('form-phone');
-      const phone = phoneInput ? phoneInput.value.trim() : '';
       const service = document.getElementById('form-service').value;
       const quantity = document.getElementById('form-quantity').value.trim();
+      const fileSource = document.getElementById('form-file-source').value;
       const description = document.getElementById('form-description').value.trim();
 
       const lines = [
         '👋 *¡Hola, equipo de Eben-ezer!* Quisiera solicitar una cotización:',
         '',
-        '👤 *Nombre:* ' + name
+        '👤 *Cliente:* ' + name,
+        '🖨️ *Servicio de interés:* ' + service
       ];
 
-      if (phone) lines.push('📱 *WhatsApp / Teléfono:* ' + phone);
-
-      lines.push('🖨️ *Servicio de interés:* ' + service);
-
       if (quantity) lines.push('🔢 *Cantidad aproximada:* ' + quantity);
+      if (fileSource) lines.push('📁 *Archivo / Diseño:* ' + fileSource);
       if (description) lines.push('📝 *Detalles del trabajo:* ' + description);
 
       lines.push('');
       lines.push('📍 *Ubicación:* San Fernando de Apure');
-      lines.push('¡Muchas gracias, quedo atento(a)!');
+      lines.push('¡Muchas gracias!');
 
       const messageText = lines.join('\\n');
       const waUrl = 'https://wa.me/584262181760?text=' + encodeURIComponent(messageText);
