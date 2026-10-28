@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Send, Phone, MessageSquare, FileText, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import { MessageSquare, FileText, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import {
   QuoteFormState,
   buildWhatsAppQuoteUrl,
@@ -20,7 +20,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
     description: '',
   });
 
-  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
   // Sync when initialService changes externally (e.g. from service card click)
@@ -42,14 +42,9 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
   };
 
   const validate = (): boolean => {
-    const newErrors: { name?: string; phone?: string } = {};
+    const newErrors: { name?: string } = {};
     if (!formData.name.trim()) {
       newErrors.name = 'Por favor ingresa tu nombre completo.';
-    }
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Por favor ingresa tu número de WhatsApp o teléfono.';
-    } else if (formData.phone.trim().length < 7) {
-      newErrors.phone = 'Ingresa un número telefónico válido.';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -240,31 +235,23 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
                   )}
                 </div>
 
-                {/* Teléfono / WhatsApp */}
+                {/* Teléfono / WhatsApp (Opcional) */}
                 <div>
                   <label htmlFor="phone" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    Teléfono / WhatsApp <span className="text-rose-500">*</span>
+                    Teléfono / WhatsApp <span className="text-slate-400 font-normal lowercase">(opcional)</span>
                   </label>
                   <input
                     id="phone"
                     name="phone"
                     type="tel"
-                    required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Ejemplo: 0426-1234567 o +58 426..."
-                    className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2 ${
-                      errors.phone
-                        ? 'border-rose-400 focus:ring-rose-500 bg-rose-50/30'
-                        : 'border-slate-300 focus:ring-blue-600 bg-slate-50/50'
-                    }`}
+                    placeholder="Ejemplo: 0426-1234567 o +58 426... (opcional)"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-blue-600 bg-slate-50/50 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2"
                   />
-                  {errors.phone && (
-                    <p className="mt-1 text-xs text-rose-600 flex items-center gap-1 font-medium">
-                      <AlertCircle className="w-3.5 h-3.5" />
-                      {errors.phone}
-                    </p>
-                  )}
+                  <p className="mt-1 text-[11px] text-slate-500">
+                    Tu número ya aparecerá de forma automática cuando se abra el chat en WhatsApp.
+                  </p>
                 </div>
 
                 {/* Servicio de interés */}

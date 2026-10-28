@@ -457,8 +457,9 @@ export function getStandaloneHtml(): string {
               </div>
 
               <div>
-                <label for="form-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Teléfono / WhatsApp <span class="text-rose-500">*</span></label>
-                <input id="form-phone" type="tel" required placeholder="Ejemplo: 0426-1234567 o +58 426..." class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <label for="form-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Teléfono / WhatsApp <span class="text-slate-400 font-normal lowercase">(opcional)</span></label>
+                <input id="form-phone" type="tel" placeholder="Ejemplo: 0426-1234567 o +58 426... (opcional)" class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <p class="text-[11px] text-slate-500 mt-1">Tu número ya se identificará al abrirse el chat de WhatsApp.</p>
               </div>
 
               <div>
@@ -574,14 +575,14 @@ export function getStandaloneHtml(): string {
             Tu imprenta de confianza en San Fernando de Apure. Calidad fotográfica, copias de alta definición y atención cálida con base en la fe.
           </p>
           <div class="flex items-center gap-3 pt-2">
-            <a href="https://instagram.com/eben_ezer_variedades" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-pink-600 text-white flex items-center justify-center border border-slate-800 transition">
-              <i class="fa-brands fa-instagram"></i>
+            <a href="https://wa.me/584262181760" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="WhatsApp principal" title="WhatsApp principal">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-blue-600 text-white flex items-center justify-center border border-slate-800 transition">
-              <i class="fa-brands fa-facebook-f"></i>
+            <a href="https://whatsapp.com/channel/0029VbDSCML5fM5S4aTWJ92y" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-teal-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="Canal de WhatsApp (Catálogo)" title="Canal de WhatsApp (Catálogo Oficial)">
+              <i class="fa-solid fa-bullhorn text-sm text-emerald-400"></i>
             </a>
-            <a href="https://wa.me/584262181760" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white flex items-center justify-center border border-slate-800 transition">
-              <i class="fa-brands fa-whatsapp"></i>
+            <a href="mailto:1variedades.eben.ezer1@gmail.com" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-amber-600 text-white flex items-center justify-center border border-slate-800 transition" aria-label="Correo electrónico" title="Correo electrónico">
+              <i class="fa-solid fa-envelope"></i>
             </a>
           </div>
         </div>
@@ -673,7 +674,8 @@ export function getStandaloneHtml(): string {
     function handleQuoteSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('form-name').value.trim();
-      const phone = document.getElementById('form-phone').value.trim();
+      const phoneInput = document.getElementById('form-phone');
+      const phone = phoneInput ? phoneInput.value.trim() : '';
       const service = document.getElementById('form-service').value;
       const quantity = document.getElementById('form-quantity').value.trim();
       const description = document.getElementById('form-description').value.trim();
@@ -681,10 +683,12 @@ export function getStandaloneHtml(): string {
       const lines = [
         '👋 *¡Hola, equipo de Eben-ezer!* Quisiera solicitar una cotización:',
         '',
-        '👤 *Nombre:* ' + name,
-        '📱 *WhatsApp / Teléfono:* ' + phone,
-        '🖨️ *Servicio de interés:* ' + service
+        '👤 *Nombre:* ' + name
       ];
+
+      if (phone) lines.push('📱 *WhatsApp / Teléfono:* ' + phone);
+
+      lines.push('🖨️ *Servicio de interés:* ' + service);
 
       if (quantity) lines.push('🔢 *Cantidad aproximada:* ' + quantity);
       if (description) lines.push('📝 *Detalles del trabajo:* ' + description);

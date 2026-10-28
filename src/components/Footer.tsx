@@ -36,39 +36,33 @@ export const Footer: React.FC<FooterProps> = ({ onOpenHtmlModal }) => {
               definición, stickers comerciales y atención cálida con base en la fe.
             </p>
 
-            {/* Social Icons */}
+            {/* Direct Contact Buttons (WhatsApp & Mail) */}
             <div className="flex items-center gap-3 pt-2">
-              <a
-                href={BUSINESS_CONFIG.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-slate-900 hover:bg-gradient-to-tr hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 text-white flex items-center justify-center transition-all border border-slate-800"
-                aria-label="Instagram de Eben-ezer"
-              >
-                <i className="fa-brands fa-instagram text-lg" />
-              </a>
-              <a
-                href={BUSINESS_CONFIG.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-slate-900 hover:bg-blue-600 text-white flex items-center justify-center transition-all border border-slate-800"
-                aria-label="Facebook de Eben-ezer"
-              >
-                <i className="fa-brands fa-facebook-f text-lg" />
-              </a>
               <a
                 href={`https://wa.me/${BUSINESS_CONFIG.mainPhoneDigits}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white flex items-center justify-center transition-all border border-slate-800"
                 aria-label="WhatsApp principal"
+                title="Escribir al WhatsApp principal"
               >
                 <i className="fa-brands fa-whatsapp text-lg" />
+              </a>
+              <a
+                href={BUSINESS_CONFIG.catalogChannelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-slate-900 hover:bg-teal-600 text-white flex items-center justify-center transition-all border border-slate-800"
+                aria-label="Canal de WhatsApp (Catálogo)"
+                title="Canal de WhatsApp (Catálogo Oficial)"
+              >
+                <i className="fa-solid fa-bullhorn text-sm text-emerald-400" />
               </a>
               <a
                 href={`mailto:${BUSINESS_CONFIG.email}`}
                 className="w-10 h-10 rounded-xl bg-slate-900 hover:bg-amber-600 text-white flex items-center justify-center transition-all border border-slate-800"
                 aria-label="Correo electrónico"
+                title="Enviar un correo electrónico"
               >
                 <Mail className="w-5 h-5" />
               </a>

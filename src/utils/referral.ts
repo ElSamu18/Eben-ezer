@@ -5,7 +5,7 @@
 
 export interface QuoteFormState {
   name: string;
-  phone: string;
+  phone?: string;
   service: string;
   quantity: string;
   description: string;
@@ -20,9 +20,6 @@ export const BUSINESS_CONFIG = {
   secondaryPhone: '+58 426 442 0257',
   secondaryPhoneDigits: '584264420257',
   email: '1variedades.eben.ezer1@gmail.com',
-  instagram: 'https://instagram.com/eben_ezer_variedades',
-  instagramHandle: '@eben_ezer_variedades',
-  facebook: 'https://facebook.com',
   domainPlaceholder: 'https://eben-ezer.com',
   catalogChannelUrl: 'https://whatsapp.com/channel/0029VbDSCML5fM5S4aTWJ92y',
 };
@@ -38,9 +35,13 @@ export function buildWhatsAppQuoteUrl(
     `👋 *¡Hola, equipo de Eben-ezer!* Quisiera solicitar una cotización:`,
     ``,
     `👤 *Nombre:* ${data.name.trim()}`,
-    `📱 *WhatsApp / Teléfono:* ${data.phone.trim()}`,
-    `🖨️ *Servicio de interés:* ${data.service}`,
   ];
+
+  if (data.phone && data.phone.trim()) {
+    lines.push(`📱 *WhatsApp / Teléfono:* ${data.phone.trim()}`);
+  }
+
+  lines.push(`🖨️ *Servicio de interés:* ${data.service}`);
 
   if (data.quantity && data.quantity.trim()) {
     lines.push(`🔢 *Cantidad aproximada:* ${data.quantity.trim()}`);
