@@ -1,17 +1,14 @@
 import React from 'react';
-import { MessageCircle, ArrowDownCircle, Sparkles, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
+import { ArrowDownCircle, Sparkles, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../utils/referral';
 
 interface HeroProps {
   onScrollToServices: () => void;
-  referralCode?: string | null;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onScrollToServices, referralCode }) => {
+export const Hero: React.FC<HeroProps> = ({ onScrollToServices }) => {
   const whatsappHeroUrl = `https://wa.me/${BUSINESS_CONFIG.mainPhoneDigits}?text=${encodeURIComponent(
-    referralCode
-      ? `¡Hola Eben-ezer! Vengo con el código de referido *${referralCode}* para obtener 10% de descuento en impresiones.`
-      : '¡Hola Eben-ezer! Me gustaría consultar por sus servicios de impresión en San Fernando de Apure.'
+    '¡Hola Eben-ezer! Me gustaría consultar por sus servicios de impresión en San Fernando de Apure.'
   )}`;
 
   return (
@@ -59,21 +56,6 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToServices, referralCode }) 
               Copias, impresiones a color y blanco y negro, stickers, certificados y fotos tipo
               carnet. Calidad profesional en San Fernando de Apure.
             </p>
-
-            {/* Referral perk alert */}
-            <div className="bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-amber-400/30 rounded-2xl p-4 backdrop-blur-xs max-w-xl mx-auto lg:mx-0">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center font-bold text-slate-950 flex-shrink-0 text-sm shadow-md">
-                  10%
-                </div>
-                <div className="text-left text-xs sm:text-sm">
-                  <p className="font-bold text-amber-200">¡Programa de Referidos Activo!</p>
-                  <p className="text-slate-300">
-                    Recomienda a un amigo y ambos reciben <strong>10% de descuento</strong> en sus impresiones.
-                  </p>
-                </div>
-              </div>
-            </div>
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Phone, Heart, Sparkles, ShieldCheck } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../utils/referral';
 
 interface FooterProps {
@@ -92,11 +92,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenHtmlModal }) => {
                 </a>
               </li>
               <li>
-                <a href="#portafolio" className="hover:text-amber-400 transition-colors">
-                  Portafolio de Trabajos
-                </a>
-              </li>
-              <li>
                 <a
                   href={BUSINESS_CONFIG.catalogChannelUrl}
                   target="_blank"
@@ -113,11 +108,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenHtmlModal }) => {
                 </a>
               </li>
               <li>
-                <a href="#referidos" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                  <span>Programa de Referidos</span>
-                  <span className="text-[10px] font-bold bg-amber-400 text-slate-950 px-1.5 py-0.5 rounded-full">
-                    10% OFF
-                  </span>
+                <a href="#faq" className="hover:text-amber-400 transition-colors">
+                  Preguntas Frecuentes
                 </a>
               </li>
               <li>

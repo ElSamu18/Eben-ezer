@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
-import { Menu, X, MessageSquareQuote, Gift, PhoneCall, Code, ExternalLink } from 'lucide-react';
+import { Menu, X, MessageSquareQuote, PhoneCall, Code, ExternalLink } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../utils/referral';
 
 interface NavbarProps {
   onOpenHtmlModal?: () => void;
-  referralCode?: string | null;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal, referralCode }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { label: 'Inicio', href: '#inicio' },
     { label: 'Servicios', href: '#servicios' },
-    { label: 'Portafolio', href: '#portafolio' },
     { label: 'Cómo Funciona', href: '#como-funciona' },
-    { label: 'Testimonios', href: '#testimonios' },
-    { label: 'Referidos (10% OFF)', href: '#referidos', badge: '10%' },
     { label: 'Preguntas', href: '#faq' },
     { label: 'Contacto', href: '#contacto' },
   ];
@@ -48,19 +44,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal, referralCode })
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Navegación principal">
+          <nav className="hidden lg:flex items-center space-x-2 xl:space-x-4" aria-label="Navegación principal">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="relative px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100/80 transition-colors"
+                className="relative px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-900 rounded-lg hover:bg-slate-100/80 transition-colors"
               >
                 {link.label}
-                {link.badge && (
-                  <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800 border border-amber-300">
-                    {link.badge}
-                  </span>
-                )}
               </a>
             ))}
           </nav>
@@ -84,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal, referralCode })
                 type="button"
                 onClick={onOpenHtmlModal}
                 className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors border border-slate-200"
-                title="Ver y copiar el código HTML estático para copiar y pegar"
+                title="Ver y copiar el código HTML estático"
               >
                 <Code className="w-3.5 h-3.5" />
                 <span className="hidden md:inline">Código HTML</span>
@@ -131,14 +122,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenHtmlModal, referralCode })
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:text-blue-900 hover:bg-blue-50 transition-colors"
+                className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-semibold text-slate-700 hover:text-blue-900 hover:bg-blue-50 transition-colors"
               >
                 <span>{link.label}</span>
-                {link.badge && (
-                  <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
-                    {link.badge}
-                  </span>
-                )}
               </a>
             ))}
 

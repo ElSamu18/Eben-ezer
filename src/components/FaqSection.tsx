@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, Sparkles } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../utils/referral';
 
 interface FaqItem {
@@ -29,9 +29,9 @@ export const faqsData: FaqItem[] = [
       '¡Por supuesto! Escríbenos por WhatsApp, te asesoramos con las dimensiones y enviamos una vista previa digital antes de mandar a producción.',
   },
   {
-    question: '¿Cómo se aplica el 10% de descuento por referido?',
+    question: '¿Qué formatos de archivo reciben para imprimir?',
     answer:
-      'Solo debes incluir el código (ej. EBEN-MARIA23) en el formulario de cotización o mencionarlo en el chat de WhatsApp. Inmediatamente se rebajará el 10% del total de tu pedido.',
+      'Recibimos archivos en PDF, Word, PowerPoint, imágenes en alta resolución (JPG, PNG), archivos de diseño o fotos enviadas directamente por WhatsApp o correo electrónico.',
   },
 ];
 

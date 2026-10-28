@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Send, Phone, MessageSquare, Tag, FileText, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import { Send, Phone, MessageSquare, FileText, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import {
   QuoteFormState,
   buildWhatsAppQuoteUrl,
@@ -9,50 +9,32 @@ import { servicesData } from './Services';
 
 interface QuoteFormProps {
   initialService?: string;
-  referralCode?: string | null;
-  onReferralCodeChange?: (code: string) => void;
 }
 
-export const QuoteForm: React.FC<QuoteFormProps> = ({
-  initialService,
-  referralCode,
-  onReferralCodeChange,
-}) => {
+export const QuoteForm: React.FC<QuoteFormProps> = ({ initialService }) => {
   const [formData, setFormData] = useState<QuoteFormState>({
     name: '',
     phone: '',
     service: initialService || 'Impresiones a color y en blanco y negro',
     quantity: '',
     description: '',
-    referralCode: referralCode || '',
   });
 
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
-  // Sync when initialService changes externally (e.g. from service card or portfolio click)
+  // Sync when initialService changes externally (e.g. from service card click)
   useEffect(() => {
     if (initialService) {
       setFormData((prev) => ({ ...prev, service: initialService }));
     }
   }, [initialService]);
 
-  // Sync when referralCode changes externally
-  useEffect(() => {
-    if (referralCode !== undefined) {
-      setFormData((prev) => ({ ...prev, referralCode: referralCode || '' }));
-    }
-  }, [referralCode]);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-
-    if (name === 'referralCode' && onReferralCodeChange) {
-      onReferralCodeChange(value);
-    }
 
     if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
@@ -102,7 +84,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
 
             <p className="text-slate-600 text-base leading-relaxed">
               Completa el formulario y te responderemos al instante por WhatsApp con el presupuesto exacto,
-              descuentos aplicables y tiempo de entrega.
+              opciones de acabado y tiempo de entrega.
             </p>
 
             {/* Benefit boxes */}
@@ -130,15 +112,15 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
               </a>
 
               <div className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-slate-200 shadow-xs">
-                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0">
-                  <i className="fa-brands fa-whatsapp text-xl" />
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="font-heading font-bold text-slate-900 text-sm">
                     Revisión de archivos por WhatsApp
                   </h4>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Puedes enviarnos tus PDFs, fotos o bocetos una vez abierta la conversación.
+                    Puedes enviarnos tus PDFs, fotos o documentos directamente en el chat para verificar la resolución.
                   </p>
                 </div>
               </div>
@@ -149,10 +131,10 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
                 </div>
                 <div>
                   <h4 className="font-heading font-bold text-slate-900 text-sm">
-                    10% de descuento con tu referido
+                    Precios justos y transparentes
                   </h4>
                   <p className="text-xs text-slate-500 mt-0.5">
-                    Si tienes un código, inclúyelo abajo para que apliquemos la rebaja de inmediato.
+                    Cotizamos al mayor y al detal para estudiantes, profesionales y negocios locales.
                   </p>
                 </div>
               </div>
@@ -335,36 +317,6 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
                     placeholder="Cuéntanos detalles: tipo de papel, colores, fecha límite, medidas o cualquier indicación especial..."
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 text-sm text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-blue-600 resize-none"
                   />
-                </div>
-
-                {/* Código de referido */}
-                <div className="bg-amber-50/60 border border-amber-200/90 rounded-2xl p-4">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <label htmlFor="referralCode" className="text-xs font-bold text-amber-950 uppercase tracking-wider flex items-center gap-1.5">
-                      <Tag className="w-3.5 h-3.5 text-amber-600" />
-                      <span>Código de referido (10% Descuento)</span>
-                    </label>
-                    {formData.referralCode && (
-                      <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
-                        ¡10% Aplicado!
-                      </span>
-                    )}
-                  </div>
-                  <input
-                    id="referralCode"
-                    name="referralCode"
-                    type="text"
-                    value={formData.referralCode}
-                    onChange={handleChange}
-                    placeholder="Ejemplo: EBEN-MARIA23"
-                    className="w-full px-4 py-2.5 rounded-xl border border-amber-300 bg-white text-sm font-mono uppercase tracking-wider text-slate-900 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-amber-500"
-                  />
-                  <p className="text-[11px] text-amber-800/90 mt-1">
-                    ¿Tienes un código de un amigo? Escríbelo para recibir tu 10% de descuento. Si no tienes uno, puedes dejarlo en blanco o{' '}
-                    <a href="#referidos" className="underline font-bold text-amber-950">
-                      generar uno arriba
-                    </a>.
-                  </p>
                 </div>
 
                 {/* Submit button */}

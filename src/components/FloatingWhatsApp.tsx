@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
-import { X, MessageSquare, PhoneCall } from 'lucide-react';
+import { X } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../utils/referral';
 
-interface FloatingWhatsAppProps {
-  referralCode?: string | null;
-}
-
-export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ referralCode }) => {
+export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
 
   const whatsappUrl = `https://wa.me/${BUSINESS_CONFIG.mainPhoneDigits}?text=${encodeURIComponent(
-    referralCode
-      ? `¡Hola Eben-ezer! Tengo el código de referido *${referralCode}* (10% de descuento). Quisiera consultar por una impresión.`
-      : '¡Hola Eben-ezer! Quisiera pedir una cotización para un trabajo de impresión en San Fernando de Apure.'
+    '¡Hola Eben-ezer! Quisiera pedir una cotización para un trabajo de impresión en San Fernando de Apure.'
   )}`;
 
   return (
@@ -47,13 +41,6 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ referralCode
         aria-label="Contactar por WhatsApp a Eben-ezer"
       >
         <i className="fa-brands fa-whatsapp text-3xl sm:text-4xl" />
-
-        {/* 10% OFF floating badge if referral code is active */}
-        {referralCode && (
-          <span className="absolute -top-1.5 -left-1.5 bg-amber-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-full shadow-md border border-white">
-            -10%
-          </span>
-        )}
       </a>
     </aside>
   );
